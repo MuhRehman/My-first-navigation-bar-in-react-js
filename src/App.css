@@ -18,7 +18,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.homestyle img{
+  max-width: 24%;
+}
 .App-link {
   color: #61dafb;
 }
