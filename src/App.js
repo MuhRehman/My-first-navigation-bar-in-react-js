@@ -1,35 +1,48 @@
-import React from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 // import React from 'react';
 import './App.css';
 import Menu from './Menu';
-import rehman from './img/white.png';
-import About from './About';
+// import rehman from './img/black1.png';
+// import About from './About';
 import Contact from './Contact';
-import './Homestyle.css';
+
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+// import Particles from 'react-particles-js';
+const AsyncHome = lazy (() => import('./Home'));
+const AsyncAbout = lazy (() => import('./About'));
+
+// const particleOpt = {
+ 
+//   particles: {
+//   number : {
+//     value : 50,
+//     density: {
+//       enable :true,
+//       value_area:200
+//     }
+//   }
+//   }
+  
+// }
+
 function App() {
   return (
+
+    <Suspense fallback={<div> Loading..</div>}>
     <BrowserRouter>
             <div>
         <Menu />
         <Switch>
-        <Route path="/" exact component= {Home} />
-        <Route path="/about" component= {About} />
+        <Route path="/" exact component= {AsyncHome} />
+        <Route path="/about" component= {AsyncAbout} />
         <Route path="/contact" component= {Contact} />
         </Switch>
         
             </div>
      </BrowserRouter>
+     </Suspense>
   );
 }
-const Home = () => {
-    return(
-        <div className="homestyle">
-              <h2>Welcome to Home Page</h2>
-              
-              <img src={rehman} alt="Logo" />
-        </div>
-    )
-}
+
 
 export default App;

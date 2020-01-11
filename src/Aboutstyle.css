@@ -1,9 +1,4 @@
 .aboutstyle{
-    width: 100%;
-    height: 300px;
-    background: #bbaadd;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    background-color: #131313;
 }
